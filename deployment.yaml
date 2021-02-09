@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cppcontainer-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cppcontainer
+  template:
+    metadata:
+      labels:
+        app: cppcontainer
+    spec:
+      containers:
+      - name: cppcontainer
+        image: williamganley/cppcontainerimage:1
+        ports:
+        - containerPort: 80
+
